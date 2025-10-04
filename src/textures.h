@@ -16,6 +16,8 @@ SDL_Rect dest;
 
 void loadtexture(Sprite* sprite,Game* game,char* filepath,int posX,int posY,int width,int height);
 
+void setSpriteSize(Sprite* sprite, int w,int h,int x,int y);
+
 void renderTexture(Game* game, Sprite* sprite);
 
 #endif

@@ -11,6 +11,14 @@
 
 typedef struct Sprite Sprite;
 
+typedef struct Game Game;
+
+typedef struct GameState{
+    void (*handle_events)(struct Game*);
+    void (*update)(struct Game*);
+    void (*render)(struct Game*);
+}GameState;
+
 typedef struct Game{
     SDL_Renderer* render;
     SDL_Window* window;
@@ -20,11 +28,12 @@ typedef struct Game{
 
     Sprite* sprite;
 
+    GameState* current_state;
+    GameState* gamestates;
 }Game;
 
-int initSDL(Game* game);
 
-void handleEvents(Game* game);
+int initSDL(Game* game);
 
 void close(Game* game);
 /* Void close has currently:

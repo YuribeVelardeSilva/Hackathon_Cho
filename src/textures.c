@@ -17,6 +17,13 @@ void loadtexture(Sprite* sprite,Game* game,
     SDL_FreeSurface(sprite->surface);
 }   
 
+void setSpriteSize(Sprite* sprite, int w,int h,int x,int y){
+    sprite->dest.w = w;
+    sprite->dest.h = h;
+    sprite->dest.x = x;
+    sprite->dest.y = y;
+}
+
 void renderTexture(Game* game, Sprite* sprite){
     if(SDL_RenderCopy(game->render,sprite->texture,&sprite->src,&sprite->dest)!=0) printf("Nothing to copy\n");
 }

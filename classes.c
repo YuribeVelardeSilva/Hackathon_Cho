@@ -71,11 +71,17 @@ typedef struct fondo{
 
 typedef struct Stats{
     // properties
-    int capas;
-    int alimento; 
+    int crew;
     int exercise;
-    int energia;
-    int combustible;
+    int social;
+    int capas;
+    int hygiene;
+    int meal;
+    int health; 
+    int fuel;
+    int sleep;
+    
+
     
 }Stats;
 
