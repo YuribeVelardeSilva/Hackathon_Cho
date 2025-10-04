@@ -7,19 +7,14 @@ typedef struct Sprite Sprite;
 typedef struct GameState GameState;
 typedef struct Vector2D;
 
-typedef struct Mouse{
-    int posm_x;
-    int posm_y;
-    int bpress;
-}Mouse;
-
 typedef struct Vector2D{
     int posX;
     int posY;
 }Vector2D;
 
-typedef struct Sprite{
+typedef struct Astronaut{
     // init resources
+    char* nombre;
     SDL_Surface* surface;
     SDL_Texture* texture;
     
@@ -29,9 +24,10 @@ typedef struct Sprite{
     
     // properties
     Vector2D ubi;
-}Sprite;
+    char* name;
+}Astronaut;
 
-typedef struct Player{
+typedef struct Suelo{
     // init resources
     SDL_Surface* surface;
     SDL_Texture* texture;
@@ -41,8 +37,80 @@ typedef struct Player{
     SDL_Rect dest;
     
     // properties
+   
+}Suelo;
 
+typedef struct Module{
+    // init resources
+    SDL_Surface* surface;
+    SDL_Texture* texture;
+    
+    // display
+    SDL_Rect src;
+    SDL_Rect dest;
+    
+    // properties
+   int plantas;
+   float area;
+   float volume;
+   Suelo suelo;
+   char* name;
+
+   
+}Module;
+
+typedef struct fondo{
+    // init resources
+    SDL_Surface* surface;
+    SDL_Texture* texture;
+    
+    // display
+    SDL_Rect src;
+    SDL_Rect dest;
+}fondo;
+
+typedef struct Stats{
+    // properties
+    int capas;
+    int alimento; 
+    int exercise;
+    int energia;
+    int combustible;
+    
+}Stats;
+
+typedef struct Nivel{
+    Stats stats;
+    Sprite* sprite;
+   
+}Nivel;
+
+
+
+typedef struct Sprite{
+    Astronaut* astronauta;
+    Suelo* suelo;
+    Module* module;
+    
 }Sprite;
+
+typedef struct Player{
+    Nivel nivel;
+    Stats stats;
+    Sprite* sprite;
+    fondo* fondo;
+    
+}Player;
+
+typedef struct Keyboard{
+    const Uint8* pkeys;
+}Keyboard;
+
+typedef struct Mouse{
+    int posm_x;
+    int posm_y;
+    int bpress;
+}Mouse;
 
 typedef struct GameState{
     void (*handle_events)(struct Game*);
