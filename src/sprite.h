@@ -22,21 +22,19 @@ typedef struct Astronaut{
     SDL_Rect colision;    
 }Astronaut;
 
-typedef struct Triangle{
-
-}Triangle;
-
-typedef struct Suelo{
+typedef struct Suelo {
     SrcDis props;
-    Triangle triangle; 
-}Suelo;
+    float verticesX[7];
+    float verticesY[7];
+    float centerX;
+    float centerY;
+} Suelo;
 
 typedef struct Module{
     // init resources
-    SrcDis props;
+    SrcDis* props;
     // properties
     int plantas;
-    float area;
     float volume;
     Suelo suelo;
     char* name;

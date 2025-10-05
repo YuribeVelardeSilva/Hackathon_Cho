@@ -20,7 +20,6 @@ int load_texto(Game* game, Texto* texto, int x, int y, int h){
 
     //Count letters
     size_t length = strlen(texto->msg);
-    printf("Characters: %zu\n", length);
 
     //length per character 
     int charW = h/4;
@@ -30,10 +29,16 @@ int load_texto(Game* game, Texto* texto, int x, int y, int h){
     //strcat(texto->str_buffer,texto->str_num);
 
     texto->surface = TTF_RenderText_Solid(texto->font, texto->str_buffer, texto->color);
-    if(!texto->surface) return 1;
-
+    if(!texto->surface){
+        printf("Error TTF_RenderTextSolid: %s\n", SDL_GetError());
+        return 1;
+    } 
+    
     texto->texture = SDL_CreateTextureFromSurface(game->render, texto->surface);
-    if(!texto->texture) return 1;
+    if(!texto->texture){
+        printf("Error SDL_CreateTextureFromSurface: %s\n", SDL_GetError());
+        return 1;
+    } 
     
     SDL_FreeSurface(texto->surface);
 

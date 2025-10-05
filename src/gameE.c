@@ -8,7 +8,7 @@ int initSDL(Game* game){
     if(SDL_Init(systemFlags)!=0) printf("Failed init\n");
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) & (IMG_INIT_JPG | IMG_INIT_PNG);
 
-    game->window = SDL_CreateWindow("{colisiones}", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, W_Width, W_Height, 0);
+    game->window = SDL_CreateWindow("ChocoChocoLaLa", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, W_Width, W_Height, 0);
     if(!game->window) printf("Window failed %s\n", SDL_GetError());
     
     game->render = NULL;

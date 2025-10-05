@@ -8,10 +8,17 @@
 
 #include "config.h"
 #include "textures.h"
+#include "text.h"
+#include "stats.h"
 
 typedef struct Sprite Sprite;
 typedef struct Game Game;
 typedef struct Fondo Fondo;
+typedef struct Texto Texto;
+
+typedef struct UI{
+    Texto* textboxes;
+}UI;
 
 typedef struct Mouse{
     int posm_x;
@@ -37,14 +44,15 @@ typedef struct Game{
     int gameRunning;
 
     Sprite* sprite;
+    int triangleNum;
+
+    UI ui;
 
     Fondo* fondo;
     Fondo* f_tierra;
     int frame_counter;
     int current_time;
     int last_time;
-    
-    Stats stats;
 
     Mouse mouse;
     Keyboard keyboard;
@@ -66,3 +74,5 @@ void close(Game* game);
 
 
 #endif
+
+

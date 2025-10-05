@@ -1,25 +1,35 @@
 #ifndef STATS_H
-#define STATS_H 
- 
-#include <SDL2/SDL.h>
+#define STATS_H
 
- typedef struct Stats{
-    // properties
-    int crew;
+#include "gameE.h"
+#include "text.h"
+
+typedef struct UI UI;
+
+typedef struct Stats{
+    //int crew;
     int exercise;
-    int social;
-    int capas;
+    //int social;
+    //int capas;
     int hygiene;
-    int meal;
-    int health; 
+    //int meal;
+    //int health; 
     int fuel;
     int sleep;
-    
-    Uint32 last_meal_time;
-    
+    int timerMission;
+    int stress;
 }Stats;
 
-void initStats(Stats* stats);
-void updateMealConsumptionSDL(Stats* stats);
+int timer();
 
- #endif
+void functionsStats(Stats* stats);
+
+void initStats(Stats* stats);
+
+void update_UI(Game* game, UI* ui, Stats* stats);
+
+void init_UI(Game* game, UI* ui);
+
+void render_UI(Game* game, UI* ui);
+
+#endif

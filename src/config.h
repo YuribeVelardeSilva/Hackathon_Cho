@@ -3,5 +3,6 @@
 
 #define W_Width 800
 #define W_Height 600
+#define PI 3.14159265
 
 #endif
