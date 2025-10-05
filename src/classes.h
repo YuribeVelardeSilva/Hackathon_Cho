@@ -28,7 +28,6 @@ typedef struct Astronaut{
     
     // properties
     Vector2D ubi;
-    char* name;
 }Astronaut;
 
 typedef struct Suelo{
@@ -148,5 +147,11 @@ typedef struct Game{
     GameState* current_state;
     GameState* gamestates;
 }Game;
+
+void loadtexture(Sprite* sprite,Game* game,char* filepath,int posX,int posY,int width,int height);
+
+void setSpriteSize(Sprite* sprite, int w,int h,int x,int y);
+
+void renderTexture(Game* game, Sprite* sprite);
 
 #endif

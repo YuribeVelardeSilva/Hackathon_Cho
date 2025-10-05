@@ -5,6 +5,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <string.h>
 
+typedef struct Game Game;
+
 typedef struct Texto{
     TTF_Font* font;
     SDL_Color color;

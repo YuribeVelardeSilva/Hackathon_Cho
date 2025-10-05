@@ -10,8 +10,18 @@
 #include "textures.h"
 
 typedef struct Sprite Sprite;
-
 typedef struct Game Game;
+typedef struct Fondo Fondo;
+
+typedef struct Mouse{
+    int posm_x;
+    int posm_y;
+    int bpress;
+}Mouse;
+
+typedef struct Keyboard{
+    const Uint8* pkeys;
+}Keyboard;
 
 typedef struct GameState{
     void (*handle_events)(struct Game*);
@@ -27,6 +37,17 @@ typedef struct Game{
     int gameRunning;
 
     Sprite* sprite;
+
+    Fondo* fondo;
+    Fondo* f_tierra;
+    int frame_counter;
+    int current_time;
+    int last_time;
+    
+    Stats stats;
+
+    Mouse mouse;
+    Keyboard keyboard;
 
     GameState* current_state;
     GameState* gamestates;
